@@ -1,38 +1,24 @@
 const mongoose = require('mongoose');
+const util = require('util');
+const Schema = mongoose.Schema;
+const ObjectId = { type: Schema.Types.ObjectId, ref: 'Boss'};
 
-// Base User
-var user = {
-    login:{ type: String, required: true},
-    password:{ type: String, required: true}
+function BaseSchema() {
+    Schema.apply(this, arguments);
+
+    this.add({
+        name: String
+    });
 }
+util.inherits(BaseSchema, Schema);
 
-// Schema Administrator
-var admin = Object.create(user);
-admin.extraPassword = {type: String, required: true};
+var PersonSchema = new BaseSchema();
+var BossSchema = new BaseSchema({ department: String });
 
-// Schema Client
-var client = Object.create(user);
-client.name = {type: String, required: true};
-client.email = {type: String, required: true};
-client.cpf = {type: String, required: true};
-client.telphone = {type: String, required: true};
-client.andress = {type: String, required: true};
-client.typeUser = {type: Number, default: 1};
+var Person = mongoose.model('Person', PersonSchema);
+var Boss = Person.discriminator('Boss', BossSchema);
+new Boss().__t; // "Boss". `__t` is the default `discriminatorKey`
 
-// Schema Secretary
-var secretary = Object.create(user);
-secretary.name = {type: String, required: true};
-secretary.email = {type: String, required: true};
-secretary.cpf = {type: String, required: true};
-secretary.rg = {type: String, required: true};
-secretary.telphone = {type: String, required: true};
-secretary.typeUser = {type: Number, default: 2};
-
-const AdministratorSchema = new mongoose.Schema(admin);
-mongoose.model('Administrator', AdministratorSchema, 'User');
-
-const ClientSchema = new mongoose.Schema(client);
-mongoose.model('Client', ClientSchema, 'User');
-
-const SecretarySchema = new mongoose.Schema(secretary);
-mongoose.model('Secretary', SecretarySchema, 'User');
+var employeeSchema = new Schema({ boss: ObjectId });
+var Employee = Person.discriminator('Employee', employeeSchema, 'staff');
+new Employee().__t; // "staff" because of 3rd argument above
