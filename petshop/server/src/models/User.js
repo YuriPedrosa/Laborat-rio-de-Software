@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
 
+// Base User
 var user = {
-    login:{
-        type: String,
-        required: true,
-    },
-    password:{
-        type: String,
-        required: true,
-    }
+    login:{ type: String, required: true},
+    password:{ type: String, required: true}
 }
 
 // Schema Administrator
