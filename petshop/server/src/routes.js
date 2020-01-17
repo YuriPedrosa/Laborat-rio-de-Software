@@ -5,9 +5,10 @@ const AnimalController = require('./controllers/AnimalController');
 const ProductController = require('./controllers/ProductController');
 const PurchaseController = require('./controllers/PurchaseController');
 const ServiceController = require('./controllers/ServiceController');
-const BossController = require('./controllers/BossController');
-const PersonController = require('./controllers/PersonController');
-const EmployeeController = require('./controllers/EmployeeController');
+const AdminController = require('./controllers/AdminController');
+const SecretaryController = require('./controllers/SecretaryController');
+const ClientController = require('./controllers/ClientController');
+const UserController = require('./controllers/UserController');
 
 // Animal
 routes.get('/animals', AnimalController.index);
@@ -37,16 +38,19 @@ routes.post('/services', ServiceController.store);
 routes.put('/services/:id', ServiceController.update);
 routes.delete('/services/:id', ServiceController.destroy);
 
-//Boss
-routes.get('/boss', BossController.index);
-routes.post('/boss', BossController.store);
+//Admin
+routes.get('/admin', AdminController.index);
+routes.post('/admin', AdminController.store);
 
-//Person
-routes.get('/person', PersonController.index);
-routes.post('/person', PersonController.store);
+//Secretary
+routes.get('/secretary', SecretaryController.index);
+routes.post('/secretary', SecretaryController.store);
 
-//Employee
-routes.get('/employee', EmployeeController.index);
-routes.post('/employee', EmployeeController.store);
+//Client
+routes.get('/client', ClientController.index);
+routes.post('/client', ClientController.store);
+
+// User
+routes.get('/user', UserController.index);
 
 module.exports = routes;

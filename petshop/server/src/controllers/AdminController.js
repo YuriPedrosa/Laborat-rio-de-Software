@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const Employee = mongoose.model('Employee');
+const Administrator = mongoose.model('Administrator');
 
 module.exports = {
     async index(req, res){
-        const clients = await Employee.find();
+        const clients = await Administrator.find();
 
         return res.json(clients);
     },
     async store(req, res){
-        const client = await Employee.create(req.body);
+        const client = await Administrator.create(req.body);
 
         return res.json(client);
     },
