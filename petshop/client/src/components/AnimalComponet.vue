@@ -8,15 +8,10 @@
     <div class="crate">
       <label for="create">Animal</label>
       <input type="text" id="create" v-model="animal.name" placeholder="Nome">
-      <br>
       <input type="text" id="create" v-model="animal.type" placeholder="Tipo">
-      <br>
       <input type="text" id="create" v-model="animal.breed" placeholder="Raça">
-      <br>
       <input type="text" id="create" v-model="animal.size" placeholder="Tamanho">
-      <br>
       <input type="text" id="create" v-model="animal.weight" placeholder="Peso">
-      <br>
       <input type="text" id="create" v-model="animal.age" placeholder="Idade">
       <button v-on:click="createAnimal">Enviar</button>
     </div>

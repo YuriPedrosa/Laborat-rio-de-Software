@@ -1,29 +1,31 @@
 <template>
-  <div id="app">
-    <AnimalComponent />
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+    </v-app-bar>
+
+    <v-content>
+      <AnimalComponet />
+    </v-content>
+
+  </v-app>
 </template>
 
 <script>
-//import ProductComponent from './components/ProductComponent.vue'
-import AnimalComponent  from './components/AnimalComponet.vue'
+import AnimalComponet from './components/AnimalComponet.vue'
 
 export default {
-  name: 'app',
-  components: {
-    //ProductComponent,
-    AnimalComponent    
-  }
-}
-</script>
+  name: 'App',
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    AnimalComponet
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
