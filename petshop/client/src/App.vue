@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <ProductComponent />
+    <AnimalComponent />
   </div>
 </template>
 
 <script>
-import ProductComponent from './components/ProductComponent.vue'
+//import ProductComponent from './components/ProductComponent.vue'
+import AnimalComponent  from './components/AnimalComponet.vue'
 
 export default {
   name: 'app',
   components: {
-    ProductComponent
+    //ProductComponent,
+    AnimalComponent    
   }
 }
 </script>
