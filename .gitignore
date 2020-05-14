@@ -1,6 +1,6 @@
-/banco-questoes/node_modules
-/concessionaria/node_modules
-/consultorio-medico/node_modules
-/equipamentos/node_modules
-/ordem-servico/node_modules
-/petshop/node_modules
+/banco-questoes/server/node_modules
+/concessionaria/server/node_modules
+/consultorio-medico/server/node_modules
+/equipamentos/server/node_modules
+/ordem-servico/server/node_modules
+/petshop/server/node_modules
